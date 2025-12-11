@@ -121,6 +121,8 @@ tx 0x00 0x01 0x02 0x03  # Datos de ejemplo
 
 ## Comparación entre Datos Transmitidos y Datos Capturados
 
-En el dispositivo B (nodo) se envía una trama con el comando tx 0x00 0x01 0x02 0x03, es decir, 4 bytes de datos ('00 01 02 03'), y el log confirma la transmisión con el mensaje **“Tx Done 4 bytes”**.
+En el dispositivo B (nodo) se envía una trama con el comando `tx 0x00 0x01 0x02 0x03`, es decir, 4 bytes de datos (`00 01 02 03`), y el log confirma la transmisión con el mensaje **“Tx Done 4 bytes”**.
 
-En el dispositivo A (coordinador), que está en modo recepción (rx -r 1), se observa la llegada de esa trama con los mensajes “rx sfd done” y “Rx Done 4 bytes”, mostrando los bytes recibidos 00 01 a9 0b 00 00 00 00.
+En el dispositivo A (coordinador), que está en modo recepción (`rx -r 1`), se observa la llegada de esa trama con los mensajes **“rx sfd done”** y **“Rx Done 4 bytes”**, mostrando los bytes recibidos `00 01 a9 0b 00 00 00 00`.
+
+La diferencia entre los valores enviados y los vistos en A se debe a que la pila IEEE 802.15.4 agrega campos de cabecera y control a la trama, por lo que el coordinador no muestra únicamente la carga útil enviada, sino una combinación de encabezado + datos.
