@@ -118,3 +118,9 @@ tx 0x00 0x01 0x02 0x03  # Datos de ejemplo
 ```
 
 ![Imagen de WhatsApp 2025-12-11 a las 08 34 53_a7ed9ec1](https://github.com/user-attachments/assets/cfd27dc8-84d3-4a15-8fe1-f1d26c741a9b)
+
+## Comparación entre Datos Transmitidos y Datos Capturados
+
+En el dispositivo B (nodo) se envía una trama con el comando tx 0x00 0x01 0x02 0x03, es decir, 4 bytes de datos ('00 01 02 03'), y el log confirma la transmisión con el mensaje **“Tx Done 4 bytes”**.
+
+En el dispositivo A (coordinador), que está en modo recepción (rx -r 1), se observa la llegada de esa trama con los mensajes “rx sfd done” y “Rx Done 4 bytes”, mostrando los bytes recibidos 00 01 a9 0b 00 00 00 00.
